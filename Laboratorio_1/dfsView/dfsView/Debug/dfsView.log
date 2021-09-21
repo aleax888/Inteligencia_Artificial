@@ -1,0 +1,5 @@
+﻿  main.cpp
+D:\UCSP\IA\dfsView\dfsView\dfs.h(37,27): warning C4018: '<': signed/unsigned mismatch
+D:\UCSP\IA\dfsView\dfsView\main.cpp(120,23): warning C4018: '<': signed/unsigned mismatch
+D:\UCSP\IA\dfsView\dfsView\main.cpp(151,23): warning C4018: '<': signed/unsigned mismatch
+  dfsView.vcxproj -> D:\UCSP\IA\dfsView\Debug\dfsView.exe
