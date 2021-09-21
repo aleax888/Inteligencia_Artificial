@@ -20,7 +20,7 @@ using namespace std;
 vector<point> generate_points(int num) { //Generar puntos
     float windowWidth = 0;
     float windowHeight = 0;
-    int a = 600 / 25;
+    int a = 550 / 25;
     glPointSize(5.0f);
     glColor3f(0.658824, 0.658824, 0.658824);
     vector<point> result(num * num);
@@ -40,10 +40,10 @@ vector<point> generate_points(int num) { //Generar puntos
 }
 void generate_edges() { //Generar aristas/lines
     glColor3f(0.658824, 0.658824, 0.658824);
-    int a = 600 / 25;
+    int a = 550 / 25;
     for (int i = 0; i < (25 * 25); i++) {
         if (points[i].st) {
-            if (points[i].y < 600 - a && points[i].x < 600 - a) {
+            if (points[i].y < 550 - a && points[i].x < 550 - a) {
                 glLineWidth(1);
                 glBegin(GL_LINES);
                 if (points[i + 1].st) {
@@ -77,7 +77,7 @@ void generate_edges() { //Generar aristas/lines
                 glEnd();
             }
             else {
-                if (points[i].y > 600 - a && points[i].y < 500 + a && points[i].x < 600 + a) {
+                if (points[i].y > 550 - a && points[i].y < 550 + a && points[i].x < 500 + a) {
                     glBegin(GL_LINES);
                     glVertex2f(points[i].x, points[i].y);
                     glVertex2f(points[i + 1].x, points[i + 1].y); //para un lado
@@ -85,7 +85,7 @@ void generate_edges() { //Generar aristas/lines
                     graph[i].push_back(i + 1);
                     graph[i + 1].push_back(i);
                 }
-                if (points[i].x > 600 - a && points[i].y < 500 + a && points[i].x < 600 + a) {
+                if (points[i].x > 550 - a && points[i].y < 500 + a && points[i].x < 550 + a) {
                     glBegin(GL_LINES);
                     glVertex2f(points[i].x, points[i].y);
                     glVertex2f(points[i + 25].x, points[i + 25].y); //para arriba
@@ -95,6 +95,13 @@ void generate_edges() { //Generar aristas/lines
                 }
             }
         }
+    }
+}
+void printString(GLdouble x, GLdouble y, const std::string& string) {
+    glColor3d(0.0, 0.0, 0.0);
+    glRasterPos2d(x, y);
+    for (int n = 0; n < string.size(); ++n) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, string[n]);
     }
 }
 void printDFS() {
@@ -115,8 +122,10 @@ void printDFS() {
         glVertex2f(points[path[i]].x, points[path[i]].y);
         glEnd();
     }
+    string d = "Smallest path size: " + to_string(dist[finish]);
+    printString(10, 578, d);
 }
-void eliminar() { //Eliminar ruta, para crear nueva
+void eliminar() { //Eliminar nodos: obstáculos
     for (int i = 0; i < ptsDel.size(); i++) {
         points[ptsDel[i]].st = 0;
         glPointSize(20.0f);
@@ -250,10 +259,10 @@ void glPaint(void) {
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-    glutInitWindowSize(600, 600); //tama�o de la ventana
-    glutInitWindowPosition(100, 100); //posicion de la ventana
-    glutCreateWindow("DFS-Blind Search"); //titulo de la ventana
-    init_GL(); //funcion de inicializacion de OpenGL
+    glutInitWindowSize(600, 600); //tamaño de la ventana
+    glutInitWindowPosition(100, 100); //posición de la ventana
+    glutCreateWindow("DFS-Blind Search"); //título de la ventana
+    init_GL(); //iniciar OpenGL
 
     glutDisplayFunc(glPaint);
     glutReshapeFunc(&window_redraw);
