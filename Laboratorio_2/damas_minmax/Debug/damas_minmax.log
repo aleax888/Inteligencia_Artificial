@@ -1,0 +1,8 @@
+﻿  damas_minmax.cpp
+C:\Users\LENOVO\Desktop\damas_minmax\Minimax.h(121,31): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\LENOVO\Desktop\damas_minmax\Minimax.h(122,35): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\LENOVO\Desktop\damas_minmax\damas_minmax.cpp(164,23): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\LENOVO\Desktop\damas_minmax\damas_minmax.cpp(163,9): warning C4101: 'cy': variable local sin referencia
+C:\Users\LENOVO\Desktop\damas_minmax\damas_minmax.cpp(162,9): warning C4101: 'cx': variable local sin referencia
+C:\Users\LENOVO\Desktop\damas_minmax\damas_minmax.cpp(302,23): warning C4018: '<': no coinciden signed/unsigned
+  damas_minmax.vcxproj -> C:\Users\LENOVO\Desktop\damas_minmax\Debug\damas_minmax.exe
